@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Django settings for mysite project.
 
@@ -24,6 +25,7 @@ SECRET_KEY = '#zkpe5%a*_2ihd^a02cg6cagha1sloufs$24nf)k%19floq9c7'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+# DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -38,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
+    'taggit',
 ]
 
 MIDDLEWARE = [
@@ -75,10 +78,29 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
 DATABASES = {
+    # sqlite3
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
+    # # mysql
+    # 'mysql': {
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'NAME': 'csvt',
+    #     'USER': 'root',
+    #     'PASSWORD': '123456',
+    #     'HOST': '',
+    #     'PORT': '',
+    # }
+    # # postgresql
+    # 'postgresql': {
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'NAME': 'template1',
+    #     'USER': 'dongsk',
+    #     'PASSWORD': '123456',
+    #     'HOST': 'localhost',
+    #     'PORT': '5432',
+    # }
 }
 
 
@@ -104,9 +126,11 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+# LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'zh-hans'
 
-TIME_ZONE = 'UTC'
+# TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Shanghai'
 
 USE_I18N = True
 
@@ -119,3 +143,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+# 设置邮件服务器
+EMAIL_HOST = 'smtp.qq.com'
+# EMAIL_HOST_USER = 'iceflow_oa_888@foxmail.com'
+EMAIL_HOST_USER = '1753123779@qq.com'
+EMAIL_HOST_PASSWORD = 'xjryttwsuxavddhd'
+# EMAIL_PORT = 465
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
